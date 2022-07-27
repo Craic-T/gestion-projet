@@ -1,11 +1,16 @@
 {% extends 'navbar.html.twig' %}
 
-{% block title %}Hello AccueilController!{% endblock %}
+{% block title %}Séniorissimes | Accueil{% endblock %}
 
 {% block body %}
-<div class="container">
-    <p>
-        test etest e zezze
-    </p>
+<div class="container w-50 pt-5">
+
+    <h2 class='text-start pb-3'>Entrez votre ville</h2>
+    <form action="{{ path('activites') }}" method='POST' class='row gap-2 m-auto align-items-stretch'>
+        <input type="text" name="ville" id="ville" class='col-md' placeholder='Bordeaux'>
+        <button type="submit" id='villeBtn' class='col-md-4 col-sm-12 col-lg-2'>Rechercher</button>
+    </form>
+
+    <p class='text-end pt-3'>... et découvrez les activités que vous permet votre météo !</p>
 </div>
 {% endblock %}

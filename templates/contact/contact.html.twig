@@ -1,0 +1,32 @@
+{% extends 'navbar.html.twig' %}
+
+{% block title %}Séniorissimes | Contact {% endblock %}
+
+{% block body %}
+<div>
+    <p><b>Contactez-nous !</b> - Nous lisons tous vos retours</p>
+</div>
+    <form action="" id='formContact' class='' method='POST'>
+
+    <div class="row m-auto">
+        <label for="name">Nom complet :</label>
+        <input type="text" name="name" id="name" placeholder='Georgette Dupont' required>
+    </div>
+
+    <div class="row m-auto">
+        <label for="email">Adresse mail (facultatif)</label>
+        <input type="email" name="email" id="email" placeholder='Georgette.dupont@laposte.net'>
+    </div>
+
+    <div class="row m-auto">
+        <label for="content">Message</label>
+        <textarea name="content" id="content" cols="15" rows="8" placeholder='Entrez votre message ici...' required></textarea>
+    </div>
+
+    <div class="row w-25">
+        <button type="submit">Envoyer</button>
+    </div>
+
+    </form>
+
+{% endblock %}
