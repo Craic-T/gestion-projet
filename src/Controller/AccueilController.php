@@ -26,32 +26,32 @@ class AccueilController extends AbstractController
           
 
             // API
-            /*  $apicall = file_get_contents("http://www.7timer.info/bin/api.pl?lon=113.17&lat=23.09&CIVIL&product=astro&output=json"); */
-
             $apikey = "a0742c85528ef8c3c99498b98e9e20e7";
             $apicall = "https://api.openweathermap.org/data/2.5/weather?q=$ville,fr&APPID=$apikey&units=metric&lang=fr";
            $resultapi = json_decode(file_get_contents("$apicall"),true);
-         $keys = array_keys($resultapi); 
-           /* print_r($keys);
-           var_dump($resultapi["weather"][0]["main"]); */
+       /*   $keys = array_keys($resultapi); 
+           print_r($keys); */
             // requête API avec $ville
             $temperature = $resultapi["main"]["temp"]; // temp récup depuis API
             $condiMeteo = $resultapi["weather"][0]["main"]; // conditions météo de l'api
-
-            if($temperature >= 15 && $condiMeteo == 'Clear' or $condiMeteo == 'Clouds' )
+            $maxtemp = $resultapi["main"]["temp_max"];
+            $mintemp =$resultapi["main"]["temp_min"];
+            $picmeteo =  $resultapi["weather"][0]["icon"];
+            
+            if($temperature >= 15 && $condiMeteo == 'Clear' or $condiMeteo == 'Clouds' ) 
             {
                 $condiMeteo = $resultapi["weather"][0]["description"];
                 $resultapi["weather"][0]["main"];
+                $icon = "http://openweathermap.org/img/wn/$picmeteo.png";
                 $location = "ext";
             }
             else
             {
                 $condiMeteo = $resultapi["weather"][0]["description"];
                 $resultapi["weather"][0]["main"];
+                $icon = "http://openweathermap.org/img/wn/$picmeteo@2x.png";
                 $location = 'int';
             }
-
-            
             $activites = $activiteRepo->findBy(['location' => "$location"],);
 
             return $this->render('accueil/activites.html.twig', [
@@ -61,19 +61,16 @@ class AccueilController extends AbstractController
                 'meteo'           => $condiMeteo,
                 'location'        => $location,
                 'apicall'          => $apicall,
-                'resultapi'        => $resultapi
+                'resultapi'        => $resultapi,
+                'icon'             => $icon,
+                'maxtemp'          => $maxtemp,
+                'mintemp'          => $mintemp,
+                'temp'             => $temperature
 
             ]);
 
         }
        
-       
-
-
-
-
-       
-        
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
             'form'            => $form->createView(),
