@@ -22,6 +22,48 @@ body{
 }
 
 /***
+    ***polices charte
+***/
+
+p {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--lightGrey);
+}
+
+.subtitle {
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--lightGrey);
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--darkGrey);
+}
+
+/***
+    ***éléments récurents
+***/
+
+.button-ghost, .button-general:hover {
+    padding: 8px 16px;
+    border: 2px solid var(--buttoncolor);
+    color: var(--buttoncolor);
+    background-color: transparent;
+    font-weight: 500;
+}
+
+.button-general, .button-ghost:hover {
+    padding: 8px 16px;
+    border: 2px solid var(--buttoncolor);
+    color: white;
+    background-color: var(--buttoncolor);
+    font-weight: 500;
+}
+
+/***
     ***Page d'accueil / recherche
 ***/
 #ville{
@@ -30,7 +72,6 @@ body{
     padding: 5px;
 }
 
-
 #villeBtn{
     border: none;
     border-radius: 5px;
@@ -38,7 +79,6 @@ body{
     background-color: var(--buttoncolor);
     color: white;
 }
-
 
 /***
     *** Page activités
@@ -49,15 +89,20 @@ body{
     height: 175px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    object-fit: cover;
 }
+
 .activity-card{
     border-radius: 10px;
     background-color:white;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.188);
 }
-.activity-card > p{
-    text-align: justify;
-    padding: 5px;
+
+.activity-card > p {
+    text-align: left;
+    padding: 0 16px;
 }
+
 /***
     *** Page contact
 ***/
