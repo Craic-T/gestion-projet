@@ -19,7 +19,7 @@ class AccueilController extends AbstractController
     {
         $form = $this->createForm(VilleType::class);
         $form->handleRequest($request);
-
+       
         if($form->isSubmitted() && $form->isValid())
         {
             $ville = $form['ville']->getData();
@@ -28,8 +28,9 @@ class AccueilController extends AbstractController
             // API
             $apikey = "a0742c85528ef8c3c99498b98e9e20e7";
             $apicall = "https://api.openweathermap.org/data/2.5/weather?q=$ville,fr&APPID=$apikey&units=metric&lang=fr";
+            
            $resultapi = json_decode(file_get_contents("$apicall"),true);
-       /*   $keys = array_keys($resultapi); 
+             /*   $keys = array_keys($resultapi); 
            print_r($keys); */
             // requête API avec $ville
             $temperature = $resultapi["main"]["temp"]; // temp récup depuis API
@@ -44,6 +45,7 @@ class AccueilController extends AbstractController
                 $resultapi["weather"][0]["main"];
                 $icon = "http://openweathermap.org/img/wn/$picmeteo.png";
                 $location = "ext";
+                $activites = $activiteRepo->findAll();
             }
             else
             {
@@ -51,8 +53,9 @@ class AccueilController extends AbstractController
                 $resultapi["weather"][0]["main"];
                 $icon = "http://openweathermap.org/img/wn/$picmeteo@2x.png";
                 $location = 'int';
+                $activites = $activiteRepo->findBy(['location' => "$location"],);
             }
-            $activites = $activiteRepo->findBy(['location' => "$location"],);
+           
 
             return $this->render('accueil/activites.html.twig', [
                 'controller_name' => 'AccueilController',
@@ -84,14 +87,22 @@ class AccueilController extends AbstractController
     {
         // VALEURS DE TEST
         $test = $activiteRepo->findAll();
-        $ville = 'Bordeaux'; 
-        $meteo = 'ciel dégagé';
-
+        $ville = NULL; 
+        $meteo = NULL;
+        $icon = NULL;
+        $maxtemp = NULL;
+        $mintemp = NULL;
+        $temp = NULL;
+        $temperature = NULL;
         return $this->render('accueil/activites.html.twig', [
             'controller_name' => 'AccueilController',
             'test'            => $test,
             'ville'           => $ville,
             'meteo'           => $meteo,
+            'icon'             => $icon,
+            'maxtemp'          => $maxtemp,
+            'mintemp'          => $mintemp,
+            'temp'             => $temperature
         ]);
     }
 }
