@@ -38,7 +38,7 @@ class AccueilController extends AbstractController
             $temperature = $resultapi["main"]["temp"]; // temp récup depuis API
             $condiMeteo = $resultapi["weather"][0]["main"]; // conditions météo de l'api
 
-            if($temperature >= 15 && $condiMeteo == 'Clear' || $condiMeteo == 'few clouds' || $condiMeteo == 'scattered clouds')
+            if($temperature >= 15 && $condiMeteo == 'Clear' or $condiMeteo == 'Clouds' )
             {
                 $condiMeteo = $resultapi["weather"][0]["description"];
                 $resultapi["weather"][0]["main"];
