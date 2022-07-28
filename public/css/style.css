@@ -53,15 +53,7 @@ p {
 }
 
 .navbar-links:hover {
-    font-size: 20px;
-    font-weight: 500;
     color: var(--darkGrey);
-}
-
-#navbar-links1:target, #navbar-links2:target, #navbar-links3:target {
-    color: var(--darkGrey);
-    text-decoration: underline;
-    text-underline-offset: 8px;
 }
 
 /***
@@ -121,13 +113,13 @@ p {
 }
 
 #villeBtn{
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: orange;
+    width: auto;
+} 
+
+#villeBtn:hover {
     color: white;
-    font-weight: bold;
-}
+    border: 2px solid white;
+} 
 
 .home-text {
     color: white;
@@ -203,10 +195,11 @@ p {
     border-radius: 5px;
 }
 
-#formContact > div > label{
+#formContact > div > label {
     padding: 0;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
     color: var(--lightGrey);
+    font-weight: 500;
     font-size: 20px;
 }
 
