@@ -3,7 +3,7 @@
 {% block title %}Les activités à {{ville}} {% endblock %}
 
 {% block body %}
-<br><br>
+<div class="navbar-separator"></div>
 <div class="container">
     <a class="button-ghost"  href="{{ path('accueil') }}"> Retour </a><br>
     <h2 class="container-title-page"><span class="title">{{test|length}} Activités</span><span class="subtitle"> - {{ville}} ({{meteo}})</span></h2><br>Temperature actuelle : {{temp}}°C<br>Temperature maximale : {{maxtemp}}°C <br>Température minimale : {{mintemp}}°C</p>
