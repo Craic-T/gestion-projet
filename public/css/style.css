@@ -53,15 +53,7 @@ p {
 }
 
 .navbar-links:hover {
-    font-size: 20px;
-    font-weight: 500;
     color: var(--darkGrey);
-}
-
-#navbar-links1:target, #navbar-links2:target, #navbar-links3:target {
-    color: var(--darkGrey);
-    text-decoration: underline;
-    text-underline-offset: 8px;
 }
 
 /***
@@ -94,7 +86,7 @@ p {
     ***Page d'accueil / recherche
 ***/
 .fullHeight{
-    height: calc(100vh - 62px);
+    height: 100vh;
     background-image: url('/images/bg_img.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -120,13 +112,13 @@ p {
 }
 
 #villeBtn{
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: orange;
+    width: auto;
+} 
+
+#villeBtn:hover {
     color: white;
-    font-weight: bold;
-}
+    border: 2px solid white;
+} 
 
 .home-text {
     color: white;
@@ -202,10 +194,11 @@ p {
     border-radius: 5px;
 }
 
-#formContact > div > label{
+#formContact > div > label {
     padding: 0;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
     color: var(--lightGrey);
+    font-weight: 500;
     font-size: 20px;
 }
 
@@ -215,14 +208,18 @@ p {
     padding: 5px 0;
 }
 
-
-
 .navbar {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.091);
     background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100vw;
 }
 
-
+.navbar-separator {
+    height: 90px;
+    width: 100vw;
+}
 
 @media screen and (max-width : 999px) {
     .contactImg, #formContact{
@@ -235,4 +232,3 @@ p {
         max-width: 100%;
     }
 }
-
