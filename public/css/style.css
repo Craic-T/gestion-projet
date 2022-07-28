@@ -19,8 +19,8 @@ a {
     --backgroundcolor: #FFFCF9;
 }
 
-body{
-    background-color: rgba(245, 230, 212, 0.466);
+body {
+    background-color: var(--backgroundcolor);
 }
 /***
     ***polices charte
@@ -49,6 +49,7 @@ p {
     font-size: 20px;
     font-weight: 500;
     color: var(--lightGrey);
+    margin: 0 16px;
 }
 
 .navbar-links:hover {
@@ -57,13 +58,11 @@ p {
     color: var(--darkGrey);
 }
 
-/* .navbar-links:focus {
-    font-size: 20px;
-    font-weight: 500;
+#navbar-links1:target, #navbar-links2:target, #navbar-links3:target {
     color: var(--darkGrey);
     text-decoration: underline;
     text-underline-offset: 8px;
-} */
+}
 
 /***
     ***éléments récurents
@@ -115,7 +114,6 @@ p {
     color: #FFF;
 }
 
-
 #ville{
     border: none;
     border-radius: 5px;
@@ -129,6 +127,10 @@ p {
     background-color: orange;
     color: white;
     font-weight: bold;
+}
+
+.home-text {
+    color: white;
 }
 
 /***
@@ -147,6 +149,7 @@ p {
     border-radius: 10px;
     background-color:white;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.188);
+    min-width: 300px;
 }
 
 .activity-card > p {
@@ -180,6 +183,7 @@ p {
     display: flex;
     max-height: 50vh;
 }
+
 .contactImg > img{
     max-height: 99%;
     max-width: 80%;
@@ -199,7 +203,6 @@ p {
     border-radius: 5px;
 }
 
-
 #formContact > div > label{
     padding: 0;
     padding-bottom: 5px;
@@ -214,9 +217,9 @@ p {
 }
 
 
+
 .navbar {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.091);
-    margin-bottom: 20px;
     background-color: white;
 }
 
@@ -233,5 +236,4 @@ p {
         max-width: 100%;
     }
 }
-
 
