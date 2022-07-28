@@ -4,15 +4,15 @@
 
 {% block body %}
 <div class="container">
-    <button>  Retour </button><br>
-    <p><b>{{test|length}} Activités</b> - {{ville}} ({{meteo}})<img src="{{icon}}"> <br>Temperature actuelle : {{temp}}°C<br>Temperature maximale : {{maxtemp}}°C <br>Température minimale : {{mintemp}}°C</p>
+    <button class="button-ghost"> < Retour </button><br>
+    <h2 class="container-title-page"><span class="title">{{test|length}} Activités</span><span class="subtitle"> - {{ville}} ({{meteo}})</span></h2><br>Temperature actuelle : {{temp}}°C<br>Temperature maximale : {{maxtemp}}°C <br>Température minimale : {{mintemp}}°C</p>
 </div>
 <div class="pt-3 container d-flex gap-5 flex-wrap m-auto justify-content-center">
 
     {% for activite in test %}
         {# {% if activite.location == 'int' %} #}
             <div class='w-25 activity-card'>
-                <img src="{{activite.image}}"/>
+                <img src="{{activite.image}}" alt="image de l'activité {{activite.title}}"/>
                 <h4 class='text-center pt-2'>{{activite.title}}</h4>
                 <p class=''>{{activite.description}}</p>
             </div>

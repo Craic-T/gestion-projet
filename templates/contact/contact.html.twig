@@ -3,30 +3,37 @@
 {% block title %}Séniorissimes | Contact {% endblock %}
 
 {% block body %}
-<div>
-    <p><b>Contactez-nous !</b> - Nous lisons tous vos retours</p>
+<div class='contactHeader pt-5'>
+    <p class='mb-0 pt-5'><span class='title'>Contactez-nous !</span><span class='subtitle'> - Nous lisons tous vos retours</span></p>
 </div>
+
+<div class="contactContainer">
+
+    <div class="contactImg">
+        <img src='/images/contact.gif' alt='image vélo'/>
+    </div>
+
     <form action="" id='formContact' class='' method='POST'>
 
-    <div class="row m-auto">
-        <label for="name">Nom complet :</label>
+    <div class="row m-auto py-1">
+        <label for="name">Nom complet</label>
         <input type="text" name="name" id="name" placeholder='Georgette Dupont' required>
     </div>
 
-    <div class="row m-auto">
+    <div class="row m-auto py-1">
         <label for="email">Adresse mail (facultatif)</label>
         <input type="email" name="email" id="email" placeholder='Georgette.dupont@laposte.net'>
     </div>
 
-    <div class="row m-auto">
+    <div class="row m-auto py-1">
         <label for="content">Message</label>
         <textarea name="content" id="content" cols="15" rows="8" placeholder='Entrez votre message ici...' required></textarea>
     </div>
 
-    <div class="row w-25">
-        <button type="submit">Envoyer</button>
+    <div class="row justify-content-end">
+        <button class='w-25 button-general' type="submit">Envoyer</button>
     </div>
 
     </form>
-
+</div>
 {% endblock %}
