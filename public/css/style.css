@@ -52,7 +52,7 @@ body{
 }
 .activity-card{
     border-radius: 10px;
-    background-color:azure;
+    background-color:white;
 }
 .activity-card > p{
     text-align: justify;
