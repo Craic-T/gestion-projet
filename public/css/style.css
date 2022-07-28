@@ -10,6 +10,26 @@ body{
 /***
     ***Page d'accueil / recherche
 ***/
+.fullHeight{
+    height: calc(100vh - 56px);
+    background-image: url('/images/bg_img.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    padding-top: 10%;
+}
+
+#accueilContainer{
+    color: white;
+    font-weight: 700;
+}
+
+#accueilContainer > p{
+    font-size: 18px;
+}
+
+
 #ville{
     border: none;
     border-radius: 5px;
@@ -23,6 +43,7 @@ body{
     padding: 5px;
     background-color: orange;
     color: white;
+    font-weight: bold;
 }
 
 
@@ -44,14 +65,45 @@ body{
     text-align: justify;
     padding: 5px;
 }
+
 /***
     *** Page contact
 ***/
+.contactHeader{
+    width: 65%;
+    margin: auto;
+    padding-top: 2rem;
+}
+
+
+.contactContainer{
+    background-color: #FFF;
+    width: 65%;
+    height: 50vh;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border: 1px solid black;
+}
+
+.contactImg{
+    display: flex;
+    max-height: 50vh;
+}
+.contactImg > img{
+    max-height: 99%;
+    max-width: 80%;
+    margin: auto;
+}
 
 #formContact{
-    width: fit-content;
+    margin: auto;
+    width: 100%;
     border-radius: 2%;
-    border: 1px solid black;
-    margin: 10vh auto;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
+}
+
+#formContact > div > input, textarea{
+    border: 1px solid orange;
+    border-radius: 5px;
 }

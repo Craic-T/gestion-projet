@@ -12,7 +12,7 @@
     {% for activite in test %}
         {# {% if activite.location == 'int' %} #}
             <div class='w-25 activity-card'>
-                <img src="{{activite.image}}"/>
+                <img src="{{activite.image}}" alt="image de l'activité {{activite.title}}"/>
                 <h4 class='text-center pt-2'>{{activite.title}}</h4>
                 <p class=''>{{activite.description}}</p>
             </div>
