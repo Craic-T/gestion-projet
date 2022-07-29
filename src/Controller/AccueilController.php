@@ -79,16 +79,12 @@ class AccueilController extends AbstractController
         ]);
     }
 
-
-    #[Route('/activites', name: 'activites')]
-    public function activites(ActiviteRepository $activiteRepo ): Response
+    #[Route('/cgu', name: 'cgu')]
+    public function cgu(): Response
     {
-
-        $activites = $activiteRepo->findAll();
-
-        return $this->render('accueil/activites.html.twig', [
-            'controller_name' => 'AccueilController',
-            'activites'       => $activites
+        return $this->render('accueil/conditions.html.twig', [
+            'controller_name' => 'ContactController',
         ]);
     }
+
 }
