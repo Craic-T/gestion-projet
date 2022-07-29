@@ -29,7 +29,7 @@ class AccueilController extends AbstractController
             $apikey = "a0742c85528ef8c3c99498b98e9e20e7";
             $apicall = "https://api.openweathermap.org/data/2.5/weather?q=$ville,fr&APPID=$apikey&units=metric&lang=fr";
             
-           $resultapi = json_decode(file_get_contents("$apicall"),true)
+           $resultapi = json_decode(file_get_contents("$apicall"),true);
              /*   $keys = array_keys($resultapi); 
 
            print_r($keys); */
