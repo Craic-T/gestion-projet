@@ -3,17 +3,18 @@
 {% block title %}Séniorissimes | Accueil{% endblock %}
 
 {% block body %}
-<div class="container w-50 pt-5">
+<div class="fullHeight">
+    <div class="navbar-separator"></div>
+    <div id='accueilContainer' class="container w-50 pt-5">
+        <h1 class='text-start pb-3 font-weight-bold'>Entrez votre ville</h1>
+        <form action="#" method='POST' class='row gap-2 m-auto align-items-stretch'>
+        {{ form_start(form) }}
+            {{ form_widget(form.ville) }}
+            <button type="submit" id='villeBtn' class='col-md-4 col-sm-12 col-lg-2 button-general'>Rechercher</button>
+            {{ form_end(form) }}
+        </form>
 
-    <h2 class='text-start pb-3'>Entrez votre ville</h2>
-    <form action="#" method='POST' class='row gap-2 m-auto align-items-stretch'>
-    {{ form_start(form) }}
-        {# <input type="text" name="ville" id="ville" class='col-md' placeholder='Bordeaux'> #}
-        {{ form_widget(form.ville) }}
-        <button type="submit" id='villeBtn' class='col-md-4 col-sm-12 col-lg-2'>Rechercher</button>
-        {{ form_end(form) }}
-    </form>
-
-    <p class='text-end pt-3'>... et découvrez les activités que vous permet votre météo !</p>
+        <p class='text-end pt-3 home-text'>... et découvrez les activités que vous permet votre météo !</p>
+    </div>
 </div>
 {% endblock %}

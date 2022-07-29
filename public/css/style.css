@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
-
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
 }
 
 /***
@@ -17,10 +19,9 @@
     --backgroundcolor: #FFFCF9;
 }
 
-body{
+body {
     background-color: var(--backgroundcolor);
 }
-
 /***
     ***polices charte
 ***/
@@ -38,8 +39,20 @@ p {
 }
 
 .title {
+    padding: 20px 0;
     font-size: 40px;
     font-weight: 500;
+    color: var(--darkGrey);
+}
+
+.navbar-links {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--lightGrey);
+    margin: 0 16px;
+}
+
+.navbar-links:hover {
     color: var(--darkGrey);
 }
 
@@ -50,6 +63,7 @@ p {
 .button-ghost, .button-general:hover {
     padding: 8px 16px;
     border: 2px solid var(--buttoncolor);
+    border-radius: 5px;
     color: var(--buttoncolor);
     background-color: transparent;
     font-weight: 500;
@@ -58,14 +72,39 @@ p {
 .button-general, .button-ghost:hover {
     padding: 8px 16px;
     border: 2px solid var(--buttoncolor);
+    border-radius: 5px;
     color: white;
     background-color: var(--buttoncolor);
     font-weight: 500;
 }
 
+.container-title-page {
+    padding: 20px 0;
+}
+
 /***
     ***Page d'accueil / recherche
 ***/
+.fullHeight{
+    height: 100vh;
+    background-image: url('/images/bg_img.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    padding-top: 10%;
+}
+
+#accueilContainer{
+    color: white;
+    font-weight: 700;
+}
+
+#accueilContainer > p{
+    font-size: 18px;
+    color: #FFF;
+}
+
 #ville{
     border: none;
     border-radius: 5px;
@@ -73,10 +112,15 @@ p {
 }
 
 #villeBtn{
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: var(--buttoncolor);
+    width: auto;
+} 
+
+#villeBtn:hover {
+    color: white;
+    border: 2px solid white;
+} 
+
+.home-text {
     color: white;
 }
 
@@ -96,6 +140,7 @@ p {
     border-radius: 10px;
     background-color:white;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.188);
+    min-width: 300px;
 }
 
 .activity-card > p {
@@ -106,11 +151,84 @@ p {
 /***
     *** Page contact
 ***/
+.contactHeader{
+    max-width: 65%;
+    margin: auto;
+    padding-top: 2rem;
+    font-size: 20px;
+}
+
+.contactContainer{
+    background-color: #FFF;
+    max-width: 65%;
+    height: fit-content;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.188);
+    border-radius: 5px;
+}
+
+.contactImg{
+    grid-area: span 1;
+    display: flex;
+    max-height: 50vh;
+}
+
+.contactImg > img{
+    max-height: 99%;
+    max-width: 80%;
+    margin: auto;
+}
 
 #formContact{
-    width: fit-content;
+    grid-area: span 1;
+    margin: auto;
+    width: 100%;
     border-radius: 2%;
-    border: 1px solid black;
-    margin: 10vh auto;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
+}
+
+#formContact > div > input, textarea{
+    border: 1px solid var(--buttoncolor);
+    border-radius: 5px;
+}
+
+#formContact > div > label {
+    padding: 0;
+    padding-bottom: 8px;
+    color: var(--lightGrey);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#formContact > div > button{
+    margin: 1rem;
+    border-radius: 5px;
+    padding: 5px 0;
+}
+
+.navbar {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.091);
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+
+.navbar-separator {
+    height: 90px;
+    width: 100vw;
+}
+
+@media screen and (max-width : 999px) {
+    .contactImg, #formContact{
+        grid-column : span 2;
+    }
+}
+
+@media screen and (max-width : 500px) {
+    .contactContainer{
+        max-width: 100%;
+    }
 }
