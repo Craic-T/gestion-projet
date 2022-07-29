@@ -2,11 +2,12 @@
 {% block navbar %}
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container">
-    <a class="navbar-links" id="navbar-links1" href="{{ path('accueil') }}">Trouver des activités</a>
+    <img src='/images/senior_logo.svg' alt='image logo' class="logo"/>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <a class="navbar-links" id="navbar-links1" href="{{ path('accueil') }}">Activités</a>
       <ul class="navbar-nav mb-2 mb-lg-0 w-100 justify-content-between">
         <li class="nav-item">
         </li>
@@ -17,4 +18,59 @@
     </div>
   </div>
 </nav> 
+{% endblock %}
+
+{% block footer %}
+<div class="footer">
+<ul class='d-inline-flex'>
+  <li><a href='{{ path('cgu') }}'>Conditions d'utilisation</a></li>
+  <li><a id="myBtn" href='#'>Cookies</a></li>
+  <li></li>
+</ul>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="ml-auto close">&times;</span>
+    <h3>Gestion des cookies</h3>
+    <p class='pt-3'>Séniorissimes a beaucoup à offrir. <br>
+    En autorisant Séniorissimes et ses partenaires à utiliser des cookies et d’autres outils sur ce site, vous pourrez voir des publicités pour Séniorissimes sur d'autres sites ou applications afin de vous promouvoir nos services et offres spéciales. <br>Nous utilisons aussi des cookies pour l'analyse du trafic et la mesure publicitaire. En savoir plus sur les cookies.</p>
+    <div class="container text-end">
+      <button class='button-general cguBtn'>Accepter</button>
+      <button class='button-general cguBtn'>Refuser</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+var btnCgu = document.querySelectorAll(".cguBtn");
+
+btn.onclick = function(e) {
+  e.preventDefault();
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+btnCgu.forEach((e)=> {
+  e.onclick = function() {
+  modal.style.display = "none";
+}
+})
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 {% endblock %}

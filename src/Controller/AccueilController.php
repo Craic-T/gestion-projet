@@ -87,28 +87,12 @@ class AccueilController extends AbstractController
         ]);
     }
 
-
-    #[Route('/activites', name: 'activites')]
-    public function activites(ActiviteRepository $activiteRepo ): Response
+    #[Route('/cgu', name: 'cgu')]
+    public function cgu(): Response
     {
-        $test = $activiteRepo->findAll();
-        $ville = NULL; 
-        $meteo = NULL;
-        $icon = NULL;
-        $maxtemp = NULL;
-        $mintemp = NULL;
-        $temp = NULL;
-        $temperature = NULL;
-        return $this->render('accueil/activites.html.twig', [
-            'controller_name' => 'AccueilController',
-            'test'            => $test,
-            'ville'           => $ville,
-            'meteo'           => $meteo,
-            'icon'             => $icon,
-            'maxtemp'          => $maxtemp,
-            'mintemp'          => $mintemp,
-            'temp'             => $temperature,
-            'activites'       => $activites
+        return $this->render('accueil/conditions.html.twig', [
+            'controller_name' => 'ContactController',
         ]);
     }
-}   
+
+}
