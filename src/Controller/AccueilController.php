@@ -107,7 +107,8 @@ class AccueilController extends AbstractController
             'icon'             => $icon,
             'maxtemp'          => $maxtemp,
             'mintemp'          => $mintemp,
-            'temp'             => $temperature
+            'temp'             => $temperature,
+            'activites'       => $activites
         ]);
     }
-}
+}   

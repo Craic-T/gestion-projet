@@ -19,8 +19,8 @@ a {
     --backgroundcolor: #FFFCF9;
 }
 
-body{
-    background-color: rgba(245, 230, 212, 0.466);
+body {
+    background-color: var(--backgroundcolor);
 }
 /***
     ***polices charte
@@ -49,21 +49,12 @@ p {
     font-size: 20px;
     font-weight: 500;
     color: var(--lightGrey);
+    margin: 0 16px;
 }
 
 .navbar-links:hover {
-    font-size: 20px;
-    font-weight: 500;
     color: var(--darkGrey);
 }
-
-/* .navbar-links:focus {
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--darkGrey);
-    text-decoration: underline;
-    text-underline-offset: 8px;
-} */
 
 /***
     ***éléments récurents
@@ -95,14 +86,13 @@ p {
     ***Page d'accueil / recherche
 ***/
 .fullHeight{
-    height: calc(100vh - 62px);
+    height: 100vh;
     background-image: url('/images/bg_img.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: block;
     padding-top: 10%;
-    margin-top: -20px;
 }
 
 #accueilContainer{
@@ -115,7 +105,6 @@ p {
     color: #FFF;
 }
 
-
 #ville{
     border: none;
     border-radius: 5px;
@@ -123,12 +112,16 @@ p {
 }
 
 #villeBtn{
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: orange;
+    width: auto;
+} 
+
+#villeBtn:hover {
     color: white;
-    font-weight: bold;
+    border: 2px solid white;
+} 
+
+.home-text {
+    color: white;
 }
 
 /***
@@ -147,6 +140,7 @@ p {
     border-radius: 10px;
     background-color:white;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.188);
+    min-width: 300px;
 }
 
 .activity-card > p {
@@ -180,6 +174,7 @@ p {
     display: flex;
     max-height: 50vh;
 }
+
 .contactImg > img{
     max-height: 99%;
     max-width: 80%;
@@ -199,11 +194,11 @@ p {
     border-radius: 5px;
 }
 
-
-#formContact > div > label{
+#formContact > div > label {
     padding: 0;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
     color: var(--lightGrey);
+    font-weight: 500;
     font-size: 20px;
 }
 
@@ -213,14 +208,18 @@ p {
     padding: 5px 0;
 }
 
-
 .navbar {
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.091);
-    margin-bottom: 20px;
     background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100vw;
 }
 
-
+.navbar-separator {
+    height: 90px;
+    width: 100vw;
+}
 
 @media screen and (max-width : 999px) {
     .contactImg, #formContact{
@@ -233,5 +232,3 @@ p {
         max-width: 100%;
     }
 }
-
-

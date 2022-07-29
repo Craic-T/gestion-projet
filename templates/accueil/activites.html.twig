@@ -3,6 +3,7 @@
 {% block title %}Les activités à {{ville}} {% endblock %}
 
 {% block body %}
+<div class="navbar-separator"></div>
 <div class="container">
     
     <button class="button-ghost">  Retour </button><br>
@@ -14,7 +15,7 @@
  </div>
 <div class="pt-3 container d-flex gap-5 flex-wrap m-auto justify-content-center">
 
-    {% for activite in test %}
+    {% for activite in activites %}
         {# {% if activite.location == 'int' %} #}
             <div class='w-25 activity-card'>
                 <img src="{{activite.image}}" alt="image de l'activité {{activite.title}}"/>
