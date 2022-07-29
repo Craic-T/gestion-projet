@@ -60,7 +60,7 @@ class AccueilController extends AbstractController
                   
             return $this->render('accueil/activites.html.twig', [
                 'controller_name' => 'AccueilController',
-                'test'            => $activites,
+                'activites'            => $activites,
                 'ville'           => $ville,
                 'meteo'           => $condiMeteo,
                 'location'        => $location,
@@ -75,7 +75,7 @@ class AccueilController extends AbstractController
         }
         else
         {
-            echo "<div><br><br><br><h1 class=\"text-center\">Cette Ville n'existe pas !</h1></div>";
+            echo "<br><br><br><h1 class=\"text-center\">Cette Ville n'existe pas !</h1>";
         }
 
         }
