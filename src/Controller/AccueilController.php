@@ -28,17 +28,18 @@ class AccueilController extends AbstractController
             // API
             $apikey = "a0742c85528ef8c3c99498b98e9e20e7";
             $apicall = "https://api.openweathermap.org/data/2.5/weather?q=$ville,fr&APPID=$apikey&units=metric&lang=fr";
-            
            $resultapi = json_decode(file_get_contents("$apicall"),true);
+         
              /*   $keys = array_keys($resultapi); 
            print_r($keys); */
             // requête API avec $ville
-            $temperature = $resultapi["main"]["temp"]; // temp récup depuis API
+            $temperature = intval($resultapi["main"]["temp"]); // temp récup depuis API
             $condiMeteo = $resultapi["weather"][0]["main"]; // conditions météo de l'api
-            $maxtemp = $resultapi["main"]["temp_max"];
-            $mintemp =$resultapi["main"]["temp_min"];
+            $maxtemp = intval($resultapi["main"]["temp_max"]);
+            $mintemp = intval($resultapi["main"]["temp_min"]);
             $picmeteo =  $resultapi["weather"][0]["icon"];
             
+        if($resultapi != NULL){ 
             if($temperature >= 15 && $condiMeteo == 'Clear' or $condiMeteo == 'Clouds' ) 
             {
                 $condiMeteo = $resultapi["weather"][0]["description"];
@@ -55,8 +56,8 @@ class AccueilController extends AbstractController
                 $location = 'int';
                 $activites = $activiteRepo->findBy(['location' => "$location"],);
             }
-           
-
+      
+                  
             return $this->render('accueil/activites.html.twig', [
                 'controller_name' => 'AccueilController',
                 'test'            => $activites,
@@ -71,6 +72,11 @@ class AccueilController extends AbstractController
                 'temp'             => $temperature
 
             ]);
+        }
+        else
+        {
+            echo "<b><h1 class=\"text-center\">Cette Ville n'existe pas !</h1></b><p>";
+        }
 
         }
        
@@ -85,7 +91,6 @@ class AccueilController extends AbstractController
     #[Route('/activites', name: 'activites')]
     public function activites(ActiviteRepository $activiteRepo ): Response
     {
-        // VALEURS DE TEST
         $test = $activiteRepo->findAll();
         $ville = NULL; 
         $meteo = NULL;
