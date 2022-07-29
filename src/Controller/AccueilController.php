@@ -29,9 +29,8 @@ class AccueilController extends AbstractController
             $apikey = "a0742c85528ef8c3c99498b98e9e20e7";
             $apicall = "https://api.openweathermap.org/data/2.5/weather?q=$ville,fr&APPID=$apikey&units=metric&lang=fr";
             
-           $resultapi = json_decode(file_get_contents("$apicall"),true)
+           $resultapi = json_decode(file_get_contents("$apicall"),true);
              /*   $keys = array_keys($resultapi); 
-
            print_r($keys); */
             // requête API avec $ville
             $temperature = intval($resultapi["main"]["temp"]); // temp récup depuis API
@@ -40,6 +39,7 @@ class AccueilController extends AbstractController
             $mintemp = intval($resultapi["main"]["temp_min"]);
             $picmeteo =  $resultapi["weather"][0]["icon"];
             
+        if($resultapi != NULL){ 
             if($temperature >= 15 && $condiMeteo == 'Clear' or $condiMeteo == 'Clouds' ) 
             {
                 $condiMeteo = $resultapi["weather"][0]["description"];
@@ -56,11 +56,11 @@ class AccueilController extends AbstractController
                 $location = 'int';
                 $activites = $activiteRepo->findBy(['location' => "$location"],);
             }
-           
-
+      
+                  
             return $this->render('accueil/activites.html.twig', [
                 'controller_name' => 'AccueilController',
-                'activites'            => $activites,
+                'test'            => $activites,
                 'ville'           => $ville,
                 'meteo'           => $condiMeteo,
                 'location'        => $location,
@@ -72,6 +72,11 @@ class AccueilController extends AbstractController
                 'temp'             => $temperature
 
             ]);
+        }
+        else
+        {
+            echo "<b><h1 class=\"text-center\">Cette Ville n'existe pas !</h1></b><p>";
+        }
 
         }
        
@@ -82,15 +87,12 @@ class AccueilController extends AbstractController
         ]);
     }
 
-
-    #[Route('/activites', name: 'activites')]
-    public function activites(ActiviteRepository $activiteRepo ): Response
+    #[Route('/cgu', name: 'cgu')]
+    public function cgu(): Response
     {
-        $activites = $activiteRepo->findAll();
-
-        return $this->render('accueil/activites.html.twig', [
-            'controller_name' => 'AccueilController',
-            'activites'       => $activites
+        return $this->render('accueil/conditions.html.twig', [
+            'controller_name' => 'ContactController',
         ]);
     }
+
 }
