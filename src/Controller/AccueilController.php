@@ -75,7 +75,7 @@ class AccueilController extends AbstractController
         }
         else
         {
-            echo "<b><h1 class=\"text-center\">Cette Ville n'existe pas !</h1></b><p>";
+            echo "<div><br><br><br><h1 class=\"text-center\">Cette Ville n'existe pas !</h1></div>";
         }
 
         }
